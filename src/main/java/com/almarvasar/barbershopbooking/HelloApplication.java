@@ -10,14 +10,19 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        HibernateDbConnection.getSessionFactory();
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+
+        HibernateDbConnection.shutdown();
     }
 
     public static void main(String[] args) {
+
         launch();
     }
 }
