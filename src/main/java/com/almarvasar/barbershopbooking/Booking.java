@@ -6,13 +6,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class  Booking {
+public class    Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Autoincrement
 
     private Long id;
-    private String text;
+
+    private int date;
+
+    private String barber;
+
+    private String service;
+
+    private int time;
+
 
     public Long getId() {
         return id;
@@ -22,11 +30,38 @@ public class  Booking {
         this.id = id;
     }
 
-    public String getText() {
-        return text;
+    public int getDate() {
+        return date;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setDate(int date) {
+        this.date = date;
+    }
+
+    public String getBarber() {
+        return barber;
+    }
+
+    public void setBarber(String barber) {
+        this.barber = barber;
+    }
+
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 }
+
+
+
