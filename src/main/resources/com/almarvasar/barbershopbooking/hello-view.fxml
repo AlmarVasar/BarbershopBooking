@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="360.0" prefWidth="336.0" spacing="20.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.almarvasar.barbershopbooking.HelloController">
+<VBox alignment="CENTER" prefHeight="360.0" prefWidth="336.0" spacing="20.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -35,13 +35,12 @@
          <Label text="BARBER" GridPane.rowIndex="1" />
          <Label text="SERVICE" GridPane.rowIndex="2" />
          <Label text="TIME" GridPane.rowIndex="3" />
-         <DatePicker prefHeight="26.0" prefWidth="150.0" GridPane.columnIndex="1" />
+         <DatePicker fx:id="dateCB" prefHeight="26.0" prefWidth="150.0" GridPane.columnIndex="1" />
          <ChoiceBox fx:id="barberCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          <ChoiceBox fx:id="serviceCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          <ChoiceBox fx:id="timeCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       </children>
    </GridPane>
-   <Button mnemonicParsing="false" text="BOOK " />
-   <Button mnemonicParsing="false" text="PRICES" />
-   <Button mnemonicParsing="false" text="CONTACT US" />
+   <Button fx:id="insertButton" mnemonicParsing="false" text="BOOK" />
+   <Button fx:id="contactButton" mnemonicParsing="false" text="CONTACT" />
 </VBox>
