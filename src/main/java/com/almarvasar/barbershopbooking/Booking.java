@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.sql.Date;
+
 @Entity
 public class    Booking {
 
@@ -13,14 +15,13 @@ public class    Booking {
 
     private Long id;
 
-    private int date;
+    private Date date;
 
     private String barber;
 
     private String service;
 
     private int time;
-
 
     public Long getId() {
         return id;
@@ -30,11 +31,11 @@ public class    Booking {
         this.id = id;
     }
 
-    public int getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
