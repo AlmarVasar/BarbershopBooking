@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="360.0" prefWidth="336.0" spacing="20.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="360.0" prefWidth="336.0" spacing="20.0" style="-fx-background-color: #6CB0B0;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <Label text="BOOK YOUR APPOINTMENT">
+   <Label text="BOOK YOUR APPOINTMENT" textFill="#ffae00">
       <font>
          <Font name="System Bold" size="15.0" />
       </font></Label>
+   <VBox prefHeight="3.0" prefWidth="296.0" style="-fx-background-color: black;" />
    <GridPane prefHeight="169.0" prefWidth="296.0">
      <columnConstraints>
        <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="135.4" />
@@ -31,16 +26,35 @@
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
-         <Label text="DATE" />
-         <Label text="BARBER" GridPane.rowIndex="1" />
-         <Label text="SERVICE" GridPane.rowIndex="2" />
-         <Label text="TIME" GridPane.rowIndex="3" />
-         <DatePicker fx:id="dateCB" prefHeight="26.0" prefWidth="150.0" GridPane.columnIndex="1" />
-         <ChoiceBox fx:id="barberCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         <ChoiceBox fx:id="serviceCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-         <ChoiceBox fx:id="timeCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <Label text="DATE">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></Label>
+         <Label text="BARBER" GridPane.rowIndex="1">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></Label>
+         <Label text="SERVICE" GridPane.rowIndex="2">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></Label>
+         <Label text="TIME" GridPane.rowIndex="3">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></Label>
+         <DatePicker fx:id="dateCB" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: white;" GridPane.columnIndex="1" />
+         <ChoiceBox fx:id="barberCB" prefWidth="150.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <ChoiceBox fx:id="serviceCB" prefWidth="150.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <ChoiceBox fx:id="timeCB" prefWidth="150.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <VBox GridPane.rowIndex="2" />
       </children>
    </GridPane>
-   <Button fx:id="insertButton" mnemonicParsing="false" text="BOOK" />
-   <Button fx:id="contactButton" mnemonicParsing="false" text="CONTACT" />
+   <Button fx:id="insertButton" mnemonicParsing="false" style="-fx-background-color: white;" text="BOOK">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Button>
+   <Button fx:id="contactButton" mnemonicParsing="false" style="-fx-background-color: white;" text="CONTACT">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Button>
 </VBox>

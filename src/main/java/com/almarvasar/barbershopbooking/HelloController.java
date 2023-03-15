@@ -43,6 +43,15 @@ public class HelloController implements Initializable {
 
         //Open mysql and save the selected data in database
         this.insertButton.setOnAction(e -> {
+
+            // Check if a date has been selected and if it is not in the past
+            if (dateCB.getValue() == null || dateCB.getValue().isBefore(java.time.LocalDate.now())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Invalid date");
+                alert.setHeaderText("Please select a date that is today or later.");
+                alert.showAndWait();
+                return;
+            }
             var ses = session.openSession();
             var tx = ses.beginTransaction();
 
@@ -51,8 +60,20 @@ public class HelloController implements Initializable {
             booking.setBarber(barberCB.getValue()); //To add barber into db
             booking.setService(serviceCB.getValue()); //To add service into db
             booking.setTime(Time.valueOf(timeCB.getValue() + ":00")); // To add time into db
-            ses.save(booking);
 
+            // check if the selected time slot is available for the selected barber on the selected date
+            var query = ses.createQuery("SELECT COUNT(*) FROM Booking WHERE date = :date AND barber = :barber AND time = :time");
+            query.setParameter("date", booking.getDate());
+            query.setParameter("barber", booking.getBarber());
+            query.setParameter("time", booking.getTime());
+            Long count = (Long) query.uniqueResult();
+            if (count > 0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "This time slot is already booked for this barber on this date.");
+                alert.showAndWait();
+                return;
+            }
+
+            ses.save(booking);
             tx.commit();
             ses.close();
         });
