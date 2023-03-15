@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import org.hibernate.SessionFactory;
 
 import java.net.URL;
+import java.sql.Time;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -17,8 +18,8 @@ public class HelloController implements Initializable {
     private ChoiceBox<String> barberCB;
     @FXML
     private ChoiceBox<String> serviceCB;
-   // @FXML
-    //private ChoiceBox timeCB;
+    @FXML
+    private ChoiceBox<String> timeCB;
     @FXML
     private Button insertButton;
 
@@ -27,8 +28,7 @@ public class HelloController implements Initializable {
 //Created arrays for choisebox
     private String[] barberNames = {"Funky Hair", "Slick Dude", "Hairy Beard"};
     private String[] service = {"Haircut", "Beard trim", "Haircut and beard trim"};
-
-   // private Integer[] time = {09:00, 10:00, 11:00, 12:00, 13:00, 14:00, 15:00, 16:00""};
+    private String[] time = {"09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00"};
 
 
     public HelloController(SessionFactory session) {
@@ -39,7 +39,7 @@ public class HelloController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         barberCB.getItems().addAll(barberNames);
         serviceCB.getItems().addAll(service);
-        //timeCB.getItems().addAll(time);
+        timeCB.getItems().addAll(time);
 
         //Open mysql and save the selected data in database
         this.insertButton.setOnAction(e -> {
@@ -47,10 +47,10 @@ public class HelloController implements Initializable {
             var tx = ses.beginTransaction();
 
             var booking = new Booking();
-            booking.setDate(java.sql.Date.valueOf(dateCB.getValue())); //
-            booking.setBarber(barberCB.getValue());
-            booking.setService(serviceCB.getValue());
-            //booking.setTime((Integer) timeCB.getValue());
+            booking.setDate(java.sql.Date.valueOf(dateCB.getValue())); //To add date into db
+            booking.setBarber(barberCB.getValue()); //To add barber into db
+            booking.setService(serviceCB.getValue()); //To add service into db
+            booking.setTime(Time.valueOf(timeCB.getValue() + ":00")); // To add time into db
             ses.save(booking);
 
             tx.commit();
