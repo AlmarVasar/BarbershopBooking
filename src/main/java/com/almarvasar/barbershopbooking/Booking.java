@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.sql.Date;
+import java.sql.Time;
 
 @Entity
 public class    Booking {
@@ -21,7 +22,7 @@ public class    Booking {
 
     private String service;
 
-    private int time;
+    private Time time;
 
     public Long getId() {
         return id;
@@ -55,11 +56,11 @@ public class    Booking {
         this.service = service;
     }
 
-    public int getTime() {
+    public Time getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(Time time) {
         this.time = time;
     }
 }
