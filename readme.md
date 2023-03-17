@@ -1,0 +1,13 @@
+INSTRUCTIONS
+
+
+1) GIT CLONE https://github.com/AlmarVasar/BarbershopBooking
+
+2) Open with INTELLIJ.
+
+3) INSTALL MYSQL TO YOUR COMPUTER.
+
+4) IMPORT DATABASE DUMP SCRIPT TO MYSQL, LOCATED IN: database/dump.sql
+
+5) LAUNCH THE PROJECT AND TETS IT
+
